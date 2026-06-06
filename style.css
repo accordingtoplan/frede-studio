@@ -242,3 +242,36 @@ body {
 
   .footer-bar { padding: 16px 24px; }
 }
+
+  .footer-subscribe {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subscribe-input {
+    font-family: var(--font);
+    font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    color: var(--grey-dark);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--grey-light);
+    padding: 4px 0;
+    width: 160px;
+    outline: none;
+  }
+  .subscribe-input::placeholder { color: var(--grey-light); }
+  .subscribe-input:focus { border-bottom-color: var(--grey-dark); }
+  .subscribe-btn {
+    font-family: var(--font);
+    font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--grey-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  .subscribe-btn:hover { color: var(--grey-dark); }
