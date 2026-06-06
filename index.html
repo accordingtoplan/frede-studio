@@ -1,288 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MiaD</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
-body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frede Studio — Brand strategy, identity & digital for design-led culture.">
+  <title>Frede Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --grey-dark:  #4a4540;
+      --grey-mid:   #7a7470;
+      --grey-light: #a8a39f;
+      --border:     #c8c3be;
+      --bg:         #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--grey-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 48px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+    }
+
+    .nav-logo {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--grey-dark);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-studio {
+      font-size: 12px;
+      color: var(--grey-mid);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links li:not(:last-child)::after {
+      content: ",\00a0";
+      color: var(--grey-light);
+      font-size: 12px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--grey-light);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a.active {
+      color: var(--grey-dark);
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--grey-mid); }
+
+    /* Nav CTA — migrates in from hero on scroll */
+    .nav-cta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 20px;
+      opacity: 0;
+      transform: translateY(5px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .nav-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-btn-primary {
+      background: var(--grey-dark);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 980px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .nav-btn-secondary {
+      background: transparent;
+      color: var(--grey-dark);
+      border: 1.5px solid var(--grey-dark);
+      padding: 5px 14px;
+      border-radius: 980px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .nav-btn-secondary::after { content: ' ›'; }
+
+    .nav-btn-primary:hover,
+    .nav-btn-secondary:hover { opacity: 0.65; }
+
+    /* Hamburger — mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--grey-dark);
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+
+    .hero-block {
+      padding: 0 32px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 40px 0 24px;
+    }
+
+    .hero-headline {
+      font-size: clamp(48px, 8vw, 100px);
+      font-weight: 700;
+      line-height: 0.91;
+      letter-spacing: -0.035em;
+      color: var(--grey-dark);
+    }
+
+    .hero-descriptor {
+      font-size: clamp(12px, 1.2vw, 15px);
+      font-weight: 500;
+      color: var(--grey-mid);
+      text-align: right;
+      line-height: 1.4;
+      flex-shrink: 0;
+      max-width: 260px;
+      align-self: flex-end;
+      padding-bottom: 6px;
+    }
+
+    .hero-video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── INTRO ──────────────────────────────────────────── */
+
+    .intro {
+      padding: 64px 32px 72px;
+      max-width: 720px;
+    }
+
+    .intro-text {
+      font-size: clamp(20px, 2.4vw, 30px);
+      font-weight: 700;
+      color: var(--grey-dark);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── WORK SECTION ───────────────────────────────────── */
+
+    .work-section { padding: 0 32px 96px; }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+
+    .work-header-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--grey-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .work-header-link {
+      font-size: 11px;
+      color: var(--grey-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .work-header-link:hover { color: var(--grey-mid); }
+    .work-header-link::after { content: ' →'; }
+
+    /* Grid */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 24px;
+    }
+
+    .case {
+      cursor: pointer;
+    }
+
+    /* Full-width spanning case */
+    .case.full { grid-column: 1 / -1; }
+
+    .case-media {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .case-media video,
+    .case-media img,
+    .case-media iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .case:hover .case-media video,
+    .case:hover .case-media img { transform: scale(1.03); }
+
+    .case-media video { width: 100%; height: auto; display: block; object-fit: unset; }
+
+    .case-media.ratio-land { aspect-ratio: 4 / 3; }
+    .case-media.ratio-port { aspect-ratio: 3 / 4; }
+    .case-media.ratio-wide { aspect-ratio: 16 / 9; }
+    .case-media.ratio-auto { aspect-ratio: unset; }
+
+    /* Case info below media */
+    .case-info {
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+    }
+
+    .case-brand {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--grey-dark);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .case-tagline {
+      font-size: 11px;
+      color: var(--grey-light);
+      line-height: 1.4;
+      text-align: right;
+    }
 
 
 
-/* HERO */
-.hero { padding:56px 24px 48px;  }
-.hero-headline { font-size:clamp(64px,11vw,130px); font-weight:700; line-height:0.91; letter-spacing:-0.03em; color:var(--grey-dark); margin-bottom:44px; }
-.hero-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; }
-.hero-desc { font-size:clamp(16px,2vw,26px); font-weight:700; line-height:1.3; max-width:800px; color:var(--grey-mid); letter-spacing:-0.01em; }
-.hero-cta { display:flex; gap:12px; align-items:center; flex-shrink:0; }
-.btn-p { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:#fff; background:var(--grey-dark); border-radius:980px; padding:11px 24px; text-decoration:none; border:1px solid var(--grey-dark); line-height:1.4; white-space:nowrap; transition:background 0.15s; }
-.btn-p:hover { background:var(--grey-mid); border-color:var(--grey-mid); }
-.btn-s { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; color:var(--grey-dark); background:transparent; border-radius:980px;  padding:11px 24px; text-decoration:none; line-height:1.4; white-space:nowrap; transition:border-color 0.15s; }
-.btn-s:hover { border-color:var(--grey-mid); }
-.btn-s::after { content:' ›'; font-size:16px; }
+    /* Vimeo background embed */
+    .vimeo-bg {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background: #111;
+    }
 
-/* SECTION HEADER */
-.section-header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px;   }
-.section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
-.section-count { font-size:11px; color:var(--grey-light); }
+    .vimeo-bg iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% + 200px);
+      height: calc(100% + 200px);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
 
-/* PROJECT LIST — Alright style stacked */
-.project-list { width:100%; }
-.project-item { display:block; text-decoration:none; color:var(--grey-dark); }
+    /* Placeholder */
+    .placeholder-tile {
+      width: 100%;
+      height: 100%;
+      background: #f0ece8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Landscape: full bleed */
-.project-item.landscape .img-wrap { width:100%; overflow:hidden; aspect-ratio:16/9; }
+    .placeholder-tile span {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--grey-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-/* Portrait: centered ~50% width like Alright */
-.project-item.portrait .img-wrap { width:35%; margin:0 auto; overflow:hidden; aspect-ratio:4/5; }
+    @keyframes signal-float {
+      0%   { transform: scale(1) translateY(0px);   filter: brightness(0) invert(1) drop-shadow(0px 4px 6px rgba(0,0,0,0.0)); }
+      50%  { transform: scale(1.05) translateY(-10px); filter: brightness(0) invert(1) drop-shadow(0px 18px 24px rgba(0,0,0,0.5)); }
+      100% { transform: scale(1) translateY(0px);   filter: brightness(0) invert(1) drop-shadow(0px 4px 6px rgba(0,0,0,0.0)); }
+    }
 
-/* Square: centered ~55% */
-.project-item.portrait { padding:48px 0; }
-.project-item.square { padding:40px 0; }
-.project-item.square .img-wrap { width:42%; margin:0 auto; overflow:hidden; aspect-ratio:1/1; }
+    .logo-tile {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #1c3a2a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22%;
+    }
 
-.project-item.landscape .img-wrap { position:relative; }
-.img-wrap img, .img-wrap video {
-  width:100%; height:100%; object-fit:cover; display:block;
-  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.project-item:hover .img-wrap img,
-.project-item:hover .img-wrap video { transform:scale(1.02); }
+    .logo-tile-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.project-meta { display:flex; justify-content:space-between; align-items:baseline; padding:12px 24px 16px; }
-.project-brand { font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-dark); }
-.project-type { font-size:11px; color:var(--grey-light); }
+    .logo-tile img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      animation: signal-float 5s ease-in-out infinite;
+    }
 
-/* ABOUT SNIPPET */
-.about-strip {
-  display:grid; grid-template-columns:1fr 1fr;
-  
-}
-.about-col { padding:56px 24px 64px; }
-.about-col:first-child {  }
-.about-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:28px; }
-.about-headline { font-size:clamp(28px,4vw,48px); font-weight:700; line-height:1.02; letter-spacing:-0.025em; color:var(--grey-dark); margin-bottom:24px; }
-.about-text { font-size:14px; line-height:1.7; color:var(--grey-mid); margin-bottom:12px; }
-.founder { display:grid; grid-template-columns:1fr auto; gap:16px; padding:22px 0;  }
-.founder:first-of-type {  }
-.founder-name { font-size:13px; font-weight:700; color:var(--grey-dark); margin-bottom:5px; }
-.founder-role { font-size:12px; color:var(--grey-mid); line-height:1.5; }
-.founder-num { font-size:11px; color:var(--grey-light); padding-top:2px; }
+    .case:hover .logo-tile img {
+      animation-play-state: paused;
+    }
 
-/* FOOTER */
-.footer { display:grid; grid-template-columns:1fr 1fr 1fr;  }
-.footer-col { padding:32px 24px;  }
-.footer-col:last-child { border-right:none; }
-.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
-.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
-.footer-val a { color:var(--grey-mid); text-decoration:none; }
-.footer-val a:hover { color:var(--grey-dark); }
-.footer-bottom { padding:20px 24px;  display:flex; justify-content:space-between; }
-.footer-copy { font-size:11px; color:var(--grey-light); }
+    /* ─── FOOTER ──────────────────────────────────────────── */
 
-/* NAV — Alright style */
-.nav {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:16px 24px;
-  
-  position:sticky; top:0; background:var(--bg); z-index:100;
-}
-.nav-left { display:flex; align-items:baseline; }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
-.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links { display:flex; gap:0; list-style:none; align-items:center; }
-.nav-links li { display:inline; }
-.nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
-.nav-links li:last-child::after { content:""; margin-right:0; }
-.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
-.nav-links a:hover { color:var(--grey-dark); }
-.nav-links a.active { font-weight:700; color:var(--grey-dark); }
-.hamburger { display:none; }
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      border-top: 0.5px solid var(--border);
+    }
 
-/* FOOTER — Alright style */
-.footer-bar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 24px;
-  
-}
-.footer-copy { font-size:12px; color:var(--grey-light); }
-.footer-links { display:flex; gap:16px; }
-.footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
-.footer-links a:hover { color:var(--grey-dark); }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--grey-light);
+    }
 
-/* ── MOBILE ──────────────────────────────────────────────── */
-@media (max-width: 640px) {
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
 
-  /* Nav — hide links, keep logo */
-  .nav { padding:14px 16px; position:relative; }
-  .nav-links { display:none; }
-  .nav-links.open {
-    display:flex; flex-direction:column;
-    position:absolute; top:100%; left:0; right:0;
-    background:var(--bg);
-    padding:12px 16px 20px;
-    gap:0;
-    z-index:200;
-  }
-  .nav-links.open li { display:block; }
-  .nav-links.open li::after { display:none; }
-  .nav-links.open a { display:block; font-size:15px; padding:11px 0; margin:0; border-bottom:none; color:var(--grey-mid); }
-  .nav-links.open a.active { color:var(--grey-dark); }
-  .hamburger { display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
-  .hamburger span { display:block; width:22px; height:1.5px; background:var(--grey-dark); }
+    .footer-links a {
+      font-size: 11px;
+      color: var(--grey-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
 
-  /* Hero */
-  .hero { padding:32px 16px 36px; }
-  .hero-sub { flex-direction:column; align-items:flex-start; gap:24px; }
-  .hero-cta { flex-wrap:wrap; gap:10px; }
+    .footer-links a:hover { color: var(--grey-mid); }
 
-  /* Portrait items: full width on mobile */
-  .project-item.portrait .img-wrap { width:80%; }
-  .project-item.portrait { padding:24px 0; }
-  .project-item.square .img-wrap { width:80%; }
-  .project-item.square { padding:20px 0; }
+    /* ─── MOBILE ──────────────────────────────────────────── */
 
-  /* Project meta */
-  .project-meta { padding:10px 16px 14px; }
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        position: fixed;
+        top: 48px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        padding: 32px 20px;
+        z-index: 99;
+      }
+      .nav-links.open li::after { display: none; }
+      .nav-links.open a { font-size: 22px; color: var(--grey-dark); font-weight: 600; }
+      .hamburger { display: flex; }
 
-  /* Section header */
-  .section-header { padding:12px 16px; }
+      .hero-block { padding: 0 20px; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .hero-descriptor { text-align: left; }
 
-  /* About strip — stack columns */
-  .about-strip { grid-template-columns:1fr; }
-  .about-col { padding:36px 16px 40px; }
 
-  /* Footer */
-  .footer-bar { padding:16px 16px; }
+      .intro { padding: 40px 20px 48px; }
+      .work-section { padding: 0 20px 64px; }
+      .cases-grid { grid-template-columns: 1fr; gap: 40px; }
+      .case.full { grid-column: 1; }
 
-}
-
-</style>
+      .footer-bar { padding: 16px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-left">
-    <a class="nav-logo" href="/miad-studio/">MiaD</a><a class="nav-studio" href="/miad-studio/about.html">&nbsp;Studio</a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="/miad-studio/" class="active">Home</a></li>
-    <li><a href="/miad-studio/work.html">Work</a></li>
-    <li><a href="/miad-studio/about.html">Information</a></li>
-    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" id="hbg" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span>
-  </button>
-</nav>
-
-<div class="hero">
-  <h1 class="hero-headline">Merging intelligence and Design.</h1>
-  <div class="hero-sub">
-    <p class="hero-desc">AI strategy and creative direction for Architecture &amp; Design.<br>Deep sector knowledge. No generalist answers.</p>
-    <div class="hero-cta">
-      <a class="btn-p" href="/miad-studio/about.html#contact">Start a conversation</a>
-      <a class="btn-s" href="/miad-studio/work.html">See use cases</a>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="nav-logo" href="/">Frede</a>
+      <a class="nav-studio" href="/">&nbsp;Studio</a>
     </div>
-  </div>
-</div>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/about.html">Information</a></li>
+        <li><a href="/about.html#contact">Contact</a></li>
+      </ul>
 
-<div>
-  <div class="section-header">
-    <span class="section-label">Case Studies</span>
-    
-  </div>
-  <div class="project-list" id="case-list"></div>
-</div>
+    </div>
+    <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 
-<!-- ABOUT SNIPPET -->
-<div class="about-strip">
-  <div class="about-col">
-    <div class="about-label">About</div>
-    <h2 class="about-headline">Where sector knowledge meets design intelligence.</h2>
-    <p class="about-text">MIAD works at the intersection of AI strategy and creative direction for Architecture &amp; Design brands. We bring deep industry fluency — not generic AI consulting.</p>
-    <p class="about-text">Our work spans brand strategy, creative direction, digital transformation, and AI integration. We understand the material culture of the industry, the pace of its cycles, and the relationships that move it.</p>
-  </div>
-  <div class="about-col">
-    <div class="about-label">Founders</div>
-    <div class="founder">
-      <div>
-        <div class="founder-name">Frederik Frede</div>
-        <div class="founder-role">Co-Founder — Creative Director<br>Vitra, USM, HAY, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
+  <section class="hero-block">
+    <div class="hero-top">
+      <h1 class="hero-headline">Where culture<br>meets brand.</h1>
+      <p class="hero-descriptor">Brand strategy, identity &amp; digital<br>for design-led culture.</p>
+    </div>
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="https://freight.cargo.site/m/F1968041255154872410594581899380/Frederik-Frede-showreel.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section class="intro">
+    <p class="intro-text">Frede Studio is a creative studio redefining brands and digital experiences for design-led culture — working at the intersection of strategy, identity, and craft for clients across architecture, hospitality, and the arts.</p>
+  </section>
+
+  <section class="work-section">
+    <div class="work-header">
+      <span class="work-header-label">Selected Work</span>
+      <a class="work-header-link" href="/work.html">View all</a>
+    </div>
+    <div class="cases-grid" id="cases"></div>
+  </section>
+
+  <footer>
+    <div class="footer-bar">
+      <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:15px">Frede</span></span>
+      <div class="footer-links">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <div class="founder-num">01</div>
     </div>
-    <div class="founder">
-      <div>
-        <div class="founder-name">Chuck Heckman</div>
-        <div class="founder-role">Co-Founder — CMO, Dauphin<br>Matter Surfaces, Publicis, OneBillion!</div>
-      </div>
-      <div class="founder-num">02</div>
-    </div>
-  </div>
-</div>
+  </footer>
 
-<div class="footer-bar">
-  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MiaD</span></span>
-  <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
-  </div>
-</div>
+  <script>
+    const cases = [
+      { b:"Architonic",         tag:"Platform Strategy",   desc:"Redefining a global architecture platform from the inside out.",
+        full:true, type:"video",
+        src:"https://storage.googleapis.com/system-on/homer/header-compressed.mp4",
+        poster:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp",
+        ratio:"ratio-land" },
+      { b:"NZZ",                tag:"Brand & Digital",     desc:"Brand and digital transformation for Switzerland's leading media house.",
+        type:"img",
+        src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png",
+        ratio:"ratio-land" },
+      { b:"LAS Art Foundation", tag:"Branding & Motion",   desc:"Visual identity and motion design for a Berlin-based art institution.",
+        type:"video",
+        src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4",
+        poster:"",
+        ratio:"ratio-land" },
+      { b:"Lewis",              tag:"Brand & Digital",     desc:"Building a brand for one of North America's most ambitious real estate groups.",
+        type:"video",
+        src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4",
+        poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg",
+        ratio:"ratio-land" },
+      { b:"Umane",              tag:"Brand & Identity",    desc:"Identity for a new generation of athletic health clubs.",
+        type:"video", src:"logo_anim_umane.mp4",
+        ratio:"ratio-land" },
+      { b:"Louis Vuitton",      tag:"Employer Branding",   desc:"A global employer branding campaign and documentary for Louis Vuitton.",
+        full:true, type:"video",
+        src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
+        poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg",
+        ratio:"ratio-wide" },
+      { b:"Frederik G. Pferdt", tag:"Brand & Identity",   desc:"Personal brand for Google's first Chief Innovation Evangelist.",
+        type:"video",
+        src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
+        poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg",
+        ratio:"ratio-land" },
+      { b:"USM",                tag:"Digital Transformation", desc:"Digital transformation for one of modernism's most iconic furniture brands.",
+        type:"vimeo", src:"1048609984",
+        ratio:"ratio-land" },
+      { b:"Signal LA",          tag:"Brand & Identity",    desc:"Brand identity for an architectural retail enclave in the Los Angeles Arts District.",
+        type:"placeholder-logo",
+        src:"https://cdn.prod.website-files.com/66e30c0fc33687ad22c38f24/66e30f9b5a6d4fad335d3800_SIGNAL-2023-Logo_White.svg",
+        ratio:"ratio-land" },
+      { b:"Ritz-Carlton",       tag:"Hospitality & Brand", desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
+        type:"img",
+        src:"https://www.moresleep.net/wp-content/uploads/2019/02/Freunde-von-Freunden-Ritz-Gala-0295-1024x683.jpg",
+        ratio:"ratio-land" },
+      { b:"Bianca Chen",        tag:"Brand & Identity",    desc:"Curated Chaos — identity for an independent LA-based art curator.",
+        type:"video",
+        src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6639068317eaccf226164b07_Bianca_Chen-Multiple_Posters_Animation-hq-transcode.mp4",
+        poster:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/6638ee86acfb06657caf0f0b_bianca-MAIN_LOGO-all_colors.gif",
+        ratio:"ratio-land" },
+    ];
 
-<script>
-// orientation: landscape = full bleed 16/9, portrait = centered 50% 4/5, square = centered 55% 1/1
-const cases = [
-  { b:"Architonic",        t:"Platform Strategy",      o:"landscape", type:"video",
-    src:"https://storage.googleapis.com/system-on/homer/header-compressed.mp4", poster:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
-  { b:"Dauphin",           t:"Go-to-Market",            o:"portrait",  type:"img",
-    src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
-  { b:"USM",               t:"Digital Transformation",  o:"landscape", type:"vimeo",
-    src:"1048609984" },
-  { b:"NZZ",               t:"Brand &amp; Digital",     o:"landscape", type:"img",
-    src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
-  { b:"Lewis",             t:"Brand &amp; Digital",     o:"landscape", type:"video",
-    src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4",
-    poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
-  { b:"Frederik G. Pferdt",t:"Brand &amp; Identity",    o:"landscape", type:"video",
-    src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-02.mp4",
-    poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
-  { b:"Vitra",             t:"Brand Strategy",          o:"portrait",  type:"img",
-    src:"https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png" },
-  { b:"Louis Vuitton",     t:"Employer Branding",       o:"landscape", type:"video",
-    src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
-    poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
-  { b:"LAS Art Foundation",t:"Branding &amp; Motion",   o:"landscape", type:"video",
-    src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4",
-    poster:"" },
-];
+    const grid = document.getElementById('cases');
 
-const list = document.getElementById('case-list');
-cases.forEach(p => {
-  const a = document.createElement('a');
-  a.className = 'project-item ' + p.o;
-  a.href = '/miad-studio/work.html';
+    cases.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'case' + (c.full ? ' full' : '');
 
-  let media = '';
-  if (p.type === 'video') {
-    media = `<video autoplay muted loop playsinline poster="${p.poster||''}"><source src="${p.src}" type="video/mp4"></video>`;
-  } else if (p.type === 'vimeo') {
-    media = `<iframe src="https://player.vimeo.com/video/${p.src}?autoplay=1&muted=1&loop=1&background=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>`;
-  } else {
-    media = `<img src="${p.src}" alt="${p.b}" loading="lazy" onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'" />`;
-  }
+      let media = '';
+      const ratio = c.ratio || 'ratio-land';
+      if (c.type === 'video') {
+        media = `<div class="case-media ratio-auto"><video autoplay muted loop playsinline${c.poster ? ` poster="${c.poster}"` : ''}><source src="${c.src}" type="video/mp4"></video></div>`;
+      } else if (c.type === 'img') {
+        media = `<div class="case-media ${ratio}"><img src="${c.src}" alt="${c.b}" loading="lazy"></div>`;
+      } else if (c.type === 'vimeo') {
+        media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
+      } else if (c.type === 'placeholder-logo') {
+        media = `<div class="case-media ${ratio}"><div class="logo-tile"><img src="${c.src}" alt="${c.b}"></div></div>`;
+      } else {
+        media = `<div class="case-media ${ratio}"><div class="placeholder-tile"><span>${c.b}</span></div></div>`;
+      }
 
-  a.innerHTML = `<div class="img-wrap">${media}</div>
-    <div class="project-meta">
-      <span class="project-brand">${p.b}</span>
-      <span class="project-type">${p.t}</span>
-    </div>`;
-  list.appendChild(a);
-});
-</script>
+
+      div.innerHTML = `${media}<div class="case-info"><div class="case-brand">${c.b}</div><div class="case-tagline">${c.desc}</div></div>`;
+      grid.appendChild(div);
+    });
+
+  </script>
+
 </body>
 </html>
