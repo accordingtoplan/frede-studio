@@ -43,6 +43,12 @@
   --mid:    #7a7470;   /* body, nav links, supporting text */
   --light:  #a8a39f;   /* meta labels, footer, section heads */
   --bg:     #fff;
+
+  /* aliases for index.html + work.html compatibility */
+  --grey-dark:  #4a4540;
+  --grey-mid:   #7a7470;
+  --grey-light: #a8a39f;
+  --border:     #c8c3be;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -233,3 +239,49 @@ body {
   .page { padding: 48px 24px 80px; }
   .footer { padding: 24px; }
 }
+
+/* nav-left / nav-right structure (index.html + work.html) */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-studio {
+  font-size: var(--t-ui);
+  font-weight: var(--regular);
+  color: var(--mid);
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right ul li::after {
+  content: ',\00a0';
+  color: var(--light);
+  font-size: var(--t-ui);
+}
+
+.nav-right ul li:last-child::after { content: ''; }
+
+.nav-right ul a {
+  font-size: var(--t-ui);
+  color: var(--mid);
+  text-decoration: none;
+  font-weight: var(--regular);
+}
+
+.nav-right ul a.active {
+  color: var(--dark);
+  font-weight: var(--bold);
+}
+
+.nav-right ul a:hover { color: var(--dark); }
