@@ -186,7 +186,9 @@
     }
 
     .case:hover .case-media video,
-    .case:hover .case-media img { transform: scale(1.03); }
+    .case:hover .case-media img,
+    a.case:hover .case-media video,
+    a.case:hover .case-media img { transform: scale(1.03); }
 
     .case-media video { width: 100%; height: auto; display: block; object-fit: unset; }
 
@@ -482,7 +484,7 @@
         const a = document.createElement('a');
         a.href = c.link;
         a.className = div.className;
-        a.style.cssText = 'display:block;text-decoration:none;color:inherit;';
+        a.style.cssText = 'display:block;text-decoration:none;color:inherit;cursor:pointer;';
         a.innerHTML = inner;
         grid.appendChild(a);
       } else {
