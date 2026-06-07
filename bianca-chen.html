@@ -74,12 +74,11 @@
 /* Credits — Mouthwash style */
 .cs-bottom {
   padding: 80px 48px 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  position: relative;
   border-top: 1px solid var(--border);
   margin-top: 80px;
 }
+.cs-description { max-width: 50%; }
 .cs-description p {
   font-size: 15px;
   font-weight: 700;
@@ -88,12 +87,7 @@
   margin-bottom: 20px;
 }
 .cs-description p:last-child { margin-bottom: 0; }
-.cs-credits-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 32px;
-  align-content: start;
-}
+.cs-credits-cols { position: absolute; right: 48px; top: 80px; text-align: right; align-content: start; }
 .cs-credit-group { margin-bottom: 28px; }
 .cs-credit-group dt {
   font-size: 11px;
@@ -120,8 +114,9 @@
   .cs-header,
   .cs-intro,
   .cs-strategy-intro,
-  .cs-credits-cols { grid-template-columns: 1fr 1fr; }
-  .cs-bottom { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+  .cs-bottom { padding: 48px 24px; }
+  .cs-description { max-width: 100%; }
+  .cs-credits-cols { position: static; text-align: left; margin-top: 40px; }
   .cs-intro { padding-top: 0; }
   .cs-strategy { padding: 48px 24px; }
   .cs-pullquote { padding: 48px 24px; }
@@ -370,15 +365,10 @@
     <p>The Webflow website was designed to showcase Bianca's curatorial projects, incorporating hover animations and interactive elements that reflect her innovative approach. It serves as a hub for art enthusiasts to explore her exhibitions, upcoming projects, and philanthropic initiatives supporting economic opportunity and gender equity for artisans worldwide.</p>
   </div>
   <dl class="cs-credits-cols">
-    <div class="cs-credit-group"><dt>Client</dt>
-      <dd>Bianca Chen</dd></div>
-    <div class="cs-credit-group"><dt>Year</dt>
-      <dd>2024</dd></div>
-    <div class="cs-credit-group"><dt>Studio</dt>
-      <dd>MoreSleep</dd></div>
-    <div class="cs-credit-group"><dt>Live site</dt>
-      <dd><a href="https://www.biancachen.com/" target="_blank" rel="noopener">biancachen.com ↗</a></dd></div>
-    <div class="cs-credit-group"><dt>Team</dt><dd>Frederik Frede<br>Thomas Provost<br>Sveta Koliada</dd></div>
+    <div class="cs-credit-group"><dt>Live site</dt><dd><a href="https://www.biancachen.com/" target="_blank" rel="noopener">biancachen.com ↗</a></dd></div>
+    <div class="cs-credit-group"><dt>Collaborators</dt><dd>Frederik Frede<br>Thomas Provost<br>Sveta Koliada</dd></div>
+    <div class="cs-credit-group"><dt>Typeface</dt><dd>New Edge 666<br>Bookish</dd></div>
+    <div class="cs-credit-group"><dt>Year</dt><dd>2024</dd></div>
   </dl>
 </div>
 
