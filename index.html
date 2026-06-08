@@ -447,16 +447,50 @@
 
     /* ── Ritz-Carlton logo card ── */
     img.rc-logo {
-      width: 42% !important;
+      width: 65% !important;
       filter: brightness(0) invert(1);
-      animation: rc-shimmer 4s ease-in-out infinite;
+      animation: rc-shimmer 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Brushed steel tile */
+    .rc-steel-tile {
+      background: linear-gradient(
+        105deg,
+        #6b6b6b 0%,
+        #9a9a9a 15%,
+        #c8c8c8 25%,
+        #e0e0e0 35%,
+        #b0b0b0 45%,
+        #888 55%,
+        #a0a0a0 65%,
+        #d0d0d0 75%,
+        #9a9a9a 85%,
+        #707070 100%
+      ) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .rc-steel-tile::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+      animation: rc-steel-sweep 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes rc-steel-sweep {
+      0%   { transform: translateX(-100%); opacity: 0; }
+      20%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateX(100%); opacity: 0; }
     }
 
     @keyframes rc-shimmer {
-      0%   { filter: brightness(0) invert(1) sepia(0) saturate(1); opacity: 0.9; }
-      40%  { filter: brightness(0) invert(1) sepia(0.6) saturate(2) hue-rotate(5deg); opacity: 1; }
-      60%  { filter: brightness(0) invert(1) sepia(0.8) saturate(3) hue-rotate(10deg); opacity: 1; }
-      100% { filter: brightness(0) invert(1) sepia(0) saturate(1); opacity: 0.9; }
+      0%   { filter: brightness(0) invert(1); opacity: 0.75; }
+      50%  { filter: brightness(0.2) invert(1) sepia(1) saturate(2); opacity: 1; }
+      100% { filter: brightness(0) invert(1); opacity: 0.75; }
     }
 
 </style>
@@ -553,7 +587,7 @@
         link:"/frede-studio/umane-brand-identity.html",
         year:"2024", collab:"—" },
       { b:"Ritz-Carlton",       link:"/frede-studio/ritz-carlton-berlin-brand-event.html", tag:"Hospitality & Brand", desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
-        type:"placeholder-logo", src:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/The-Ritz-Carlton-Berlin-Logo.svg/618px-The-Ritz-Carlton-Berlin-Logo.svg.png", bg:"#1a1a2e", logoClass:"rc-logo",
+        type:"placeholder-logo", src:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/The-Ritz-Carlton-Berlin-Logo.svg/618px-The-Ritz-Carlton-Berlin-Logo.svg.png", bg:"rc-steel", logoClass:"rc-logo",
         ratio:"ratio-land",
         year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
       { b:"MINI",               tag:"Brand & Platform", desc:"Creative direction, brand strategy, and platform for a multi-city conference exploring the future of urban living — with MINI Germany.",
@@ -592,9 +626,13 @@
       } else if (c.type === 'vimeo') {
         media = `<div class="case-media ${ratio}"><div class="vimeo-bg"><iframe src="https://player.vimeo.com/video/${c.src}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>`;
       } else if (c.type === 'placeholder-logo') {
-        const bgStyle = c.bg ? `style="background:${c.bg}"` : '';
+        let tileAttrs = '';
+        if (c.bg) {
+          if (c.bg.startsWith('#')) tileAttrs = `style="background:${c.bg}"`;
+          else tileAttrs = `data-bg="${c.bg}"`;
+        }
         const imgClass = c.logoClass ? `class="${c.logoClass}"` : '';
-        media = `<div class="case-media ${ratio}"><div class="logo-tile" ${bgStyle}><img src="${c.src}" alt="${c.b}" ${imgClass}></div></div>`;
+        media = `<div class="case-media ${ratio}"><div class="logo-tile ${c.bg && !c.bg.startsWith('#') ? c.bg+'-tile' : ''}" ${tileAttrs}><img src="${c.src}" alt="${c.b}" ${imgClass}></div></div>`;
       } else {
         media = `<div class="case-media ${ratio}"><div class="placeholder-tile"><span>${c.b}</span></div></div>`;
       }
