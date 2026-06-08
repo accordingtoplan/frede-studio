@@ -216,6 +216,37 @@ body {
 
 .footer-links a:hover { color: var(--grey-dark); }
 
+.footer-subscribe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.subscribe-input {
+  font-family: var(--font);
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  color: var(--grey-dark);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--grey-light);
+  padding: 4px 0;
+  width: 160px;
+  outline: none;
+}
+.subscribe-input::placeholder { color: var(--grey-light); }
+.subscribe-input:focus { border-bottom-color: var(--grey-dark); }
+.subscribe-btn {
+  font-family: var(--font);
+  font-size: var(--t-label);
+  color: var(--grey-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.subscribe-btn:hover { color: var(--grey-dark); }
+
 /* ─── TYPE UTILITIES ──────────────────────────────────────── */
 
 .t-hero {
@@ -301,52 +332,23 @@ body {
   .nav-right.open ul a { font-size: 24px; }
 
   /* Footer — stack on mobile */
-  .footer-bar {
-    padding: 24px 20px;
+  .footer-bar { padding: 24px 20px 32px; }
+  .footer-logo-row { gap: 12px; }
+  .footer-logo { height: 40px; }
+  .footer-marker { display: none; }
+  .footer-bottom-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
   }
-  .footer-left { flex-direction: column; gap: 12px; }
-  .footer-logo { height: 56px; }
-  .footer-marker { display: none; }
-  .footer-links { gap: 16px; }
-  .footer-subscribe { flex-wrap: wrap; }
+  .footer-links { gap: 20px; }
+  .footer-subscribe { flex-wrap: wrap; gap: 8px; }
+  .subscribe-input { width: 100%; }
+  .subscribe-btn { width: 100%; }
 
   /* Hide colour swatches on mobile — nav too narrow */
   .nav-center { display: none; }
 }
-
-  .footer-subscribe {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .subscribe-input {
-    font-family: var(--font);
-    font-size: var(--t-label);
-    letter-spacing: var(--ls-label);
-    color: var(--grey-dark);
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--grey-light);
-    padding: 4px 0;
-    width: 160px;
-    outline: none;
-  }
-  .subscribe-input::placeholder { color: var(--grey-light); }
-  .subscribe-input:focus { border-bottom-color: var(--grey-dark); }
-  .subscribe-btn {
-    font-family: var(--font);
-    font-size: var(--t-label);
-    color: var(--grey-light);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: color 0.2s;
-  }
-  .subscribe-btn:hover { color: var(--grey-dark); }
 
 /* ─── PAGE HERO — shared across all pages ──────────────────
    Same structure: nav → page-hero (headline + descriptor) → content
