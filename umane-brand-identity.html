@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Umane — Brand Identity · Frederik Frede</title>
-<meta name="description" content="A modern performance brand built for ambition, driven by purpose. Identity, type, colour, and design system for Umane — a holistic wellness club in Berlin.">
+<meta name="description" content="A modern performance brand built for ambition, driven by purpose. Strategy, identity, and design system for Umane — a holistic wellness club in Berlin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
 .cs-grid img,.cs-grid video{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
 .cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
-.cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4}
+.cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9}
+.cs-grid-3.portrait img{aspect-ratio:3/4}
 .cs-pullquote{padding:80px 48px}
 .cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
 .cs-strategy{padding:80px 48px}
@@ -31,6 +32,10 @@
 .cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
 .cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
 .cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
+/* Color swatches */
+.cs-swatches{display:flex;gap:12px;padding:0 48px;margin-bottom:24px}
+.cs-swatch{flex:1;height:100px;border-radius:4px;display:flex;align-items:flex-end;padding:10px 12px;font-size:11px;font-weight:700;letter-spacing:0.05em}
+/* Credits */
 .cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
 .cs-description{max-width:50%}
 .cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
@@ -41,10 +46,10 @@
 .cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
 .cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
 .cs-credit-group dd a:hover{opacity:0.6}
-/* Colour swatch row */
-.cs-swatches{display:flex;gap:12px;padding:0 48px;margin-bottom:24px}
-.cs-swatch{flex:1;height:120px;border-radius:4px;display:flex;align-items:flex-end;padding:12px;font-size:11px;font-weight:700;letter-spacing:0.06em}
-/* Nav */
+/* AI note */
+.cs-ai-note{padding:48px;margin:0 48px 24px;border:1px solid var(--border);font-size:13px;color:var(--grey-mid);line-height:1.7}
+.cs-ai-note strong{color:var(--grey-dark)}
+/* Prev/Next nav */
 .cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
 .cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
 .cs-nav-item:hover{opacity:0.5}
@@ -64,7 +69,8 @@
   .cs-grid{grid-template-columns:1fr;gap:12px;padding:0 20px}
   .cs-grid-3{grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
   .cs-swatches{padding:0 20px;flex-wrap:wrap}
-  .cs-swatch{flex:1 1 40%;height:80px}
+  .cs-swatch{flex:1 1 40%;height:70px}
+  .cs-ai-note{margin:0 20px 24px;padding:28px 20px}
   .cs-bottom{padding:40px 20px 64px}
   .cs-description{max-width:100%}
   .cs-credits-cols{position:static;text-align:left;margin-top:40px}
@@ -103,77 +109,93 @@
 <header class="cs-header">
   <h1 class="cs-title">Umane</h1>
   <div class="cs-meta">
-    <span class="cs-tags">Brand Identity · Design System · Motion · Digital</span>
+    <span class="cs-tags">Brand Strategy · Identity · Design System · Motion · Art Direction</span>
     <p class="cs-tagline">"Built for movement, shaped by care."</p>
-    <p class="cs-desc">A modern performance brand for a Berlin wellness club built for ambition and driven by purpose. Identity, typography, colour, texture, and a full design system built to move.</p>
+    <p class="cs-desc">A modern performance brand for a Berlin wellness club built for ambition and driven by purpose. From naming rationale to full design system — strategy, identity, motion, and application.</p>
   </div>
 </header>
 
-<!-- Hero: logo animation -->
+<!-- Hero: mockup video -->
 <div class="cs-media-full">
   <video autoplay muted loop playsinline>
-    <source src="/frede-studio/logo_anim_umane.mp4" type="video/mp4">
+    <source src="/frede-studio/umane-mockup.mp4" type="video/mp4">
   </video>
 </div>
 
 <div class="cs-intro">
-  <p>Umane is a holistic wellness space in Berlin: exclusive locations for movement, recovery, and cutting-edge health technology, guided by top specialists and personalised programs. A modern performance system built for ambition, driven by purpose.</p>
-  <p>MoreSleep led the complete brand design: naming rationale, visual identity, typography system, colour palette, gradients, texture language, and a modular design system. The brief demanded a brand that feels intelligent, grounded, and quietly aspirational — not just a gym, a place to recharge, to heal, to transform.</p>
+  <p>Umane is a holistic wellness space in Berlin: exclusive locations for movement, recovery, and cutting-edge health technology, guided by top specialists and personalised programs. A modern performance system built for ambition, driven by purpose — more than a gym, a place to recharge, to heal, to transform.</p>
+  <p>MoreSleep led the complete project: naming rationale, brand strategy, narrative, visual identity, typography system, colour palette, gradient language, texture system, art direction, motion principles, and a full design system. From first strategic brief to final brand board.</p>
 </div>
 
-<!-- Section 01: Logo -->
+<!-- Section 01: Strategy -->
 <div class="cs-strategy">
-  <span class="cs-section-label">01 — Logo</span>
+  <span class="cs-section-label">01 — Brand Strategy</span>
   <div class="cs-strategy-intro">
-    <h2>A wordmark built from circles.</h2>
-    <p>The Umane logo is the visual cornerstone of the identity: each letterform constructed from overlapping circles, echoing the brand's core forms — the human body in motion, the dot pattern system, the gradient language. It represents who they are and what they stand for in a single, ownable mark. A lock-up system extends the wordmark across sub-brands: Umane Club, Umane Foods, Umane Health, Umane Coach.</p>
+    <h2>Performance is not a spike. It is a way of living.</h2>
+    <p>The strategic foundation rests on six pillars, with Capability as Culture at its centre. Umane doesn't sell better workouts — it builds a culture that lives better. The brand redefines performance: from pressure to presence, from competition to care, from hustle to real capability. Science, design, and humanity made visible in everything built.</p>
   </div>
 </div>
 
 <div class="cs-grid">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo_Off-White-1024x683.jpg" alt="Umane wordmark on off-white" loading="lazy">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo_Dark-1024x683.jpg" alt="Umane wordmark on dark" loading="lazy">
+  <img src="/frede-studio/assets/umane/p2_title_slide.jpg" alt="Umane brand strategy" loading="lazy">
+  <img src="/frede-studio/assets/umane/p2_tone_of_voice.jpg" alt="Umane tone of voice" loading="lazy">
 </div>
 
-<div class="cs-grid">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_App-Icon_Off-White-1024x683.jpg" alt="Umane app icon" loading="lazy">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Logo-Sub-Brands-1024x683.jpg" alt="Umane sub-brand lock-ups" loading="lazy">
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p2_value_prop.jpg" alt="Umane value proposition" loading="lazy">
 </div>
 
-<!-- Section 02: Typography -->
+<div class="cs-pullquote">
+  <blockquote>We don't sit still. We shape.</blockquote>
+</div>
+
+<!-- Section 02: Logo -->
 <div class="cs-strategy">
-  <span class="cs-section-label">02 — Typography</span>
+  <span class="cs-section-label">02 — Logo</span>
   <div class="cs-strategy-intro">
-    <h2>Geometric precision and human warmth.</h2>
-    <p>Two typefaces define the Umane voice. Milling Duplex brings geometric precision and confident structure to headlines. Tiempos brings warmth and clarity to body copy. Together they reflect the brand's core duality: evidence-based and human-centred, structured and approachable. A system that plays with scale, weight, and contrast to breathe life into every surface.</p>
+    <h2>A wordmark built from circles.</h2>
+    <p>The Umane logo is the visual cornerstone of the identity: each letterform constructed from overlapping circles, echoing the brand's core forms — the human body in motion, the dot pattern system, the gradient language. A lock-up system extends the wordmark across sub-brands: Club, Foods, Health, Coach — each sharing the same modular logic.</p>
   </div>
 </div>
 
 <div class="cs-media-full">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Typography-1024x576.jpg" alt="Umane typography system" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_logo_wordmark.jpg" alt="Umane wordmark" loading="lazy">
 </div>
 
-<div class="cs-pullquote">
-  <blockquote>We bring evidence to life, grounded in precision and elevated by warmth.</blockquote>
+<div class="cs-grid">
+  <img src="/frede-studio/assets/umane/p1_lockup_system.jpg" alt="Umane lock-up system" loading="lazy">
+  <img src="/frede-studio/assets/umane/p2_social_mockups.jpg" alt="Umane social mockups" loading="lazy">
 </div>
 
-<!-- Section 03: Colour -->
+<!-- Section 03: Typography -->
 <div class="cs-strategy">
-  <span class="cs-section-label">03 — Colour</span>
+  <span class="cs-section-label">03 — Typography</span>
+  <div class="cs-strategy-intro">
+    <h2>Geometric precision and human warmth.</h2>
+    <p>Milling Duplex brings geometric precision to headlines. Tiempos brings warmth and clarity to body copy. Together they reflect the brand's duality: evidence-based and human-centred. The type system plays with scale, weight, and contrast — from cinematic single-word statements to dense editorial body text.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p1_type_hierarchy.jpg" alt="Umane type hierarchy" loading="lazy">
+</div>
+
+<!-- Section 04: Colour -->
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Colour</span>
   <div class="cs-strategy-intro">
     <h2>Restrained, warm, and tactile.</h2>
-    <p>Color is restrained with neutral foundations punctuated by thoughtful accents. Soft backgrounds — Healing Blue, Pale Green, Sand — create a calming atmosphere that supports mental well-being. Energetic contrasts in cyan, mint, and yellow energise and motivate. Every palette decision serves the body and the mind.</p>
+    <p>Color is restrained with neutral foundations punctuated by thoughtful accents. Soft backgrounds create calm and healing. Energetic contrasts in cyan, mint, and yellow motivate and activate. Every palette decision serves both the body and the mind.</p>
   </div>
 </div>
 
 <div class="cs-swatches">
-  <div class="cs-swatch" style="background:#202925;color:rgba(255,255,255,0.5)">Black</div>
-  <div class="cs-swatch" style="background:#F4F0E8;color:#202925;border:1px solid #e5e0d8">Off-white</div>
+  <div class="cs-swatch" style="background:#202925;color:rgba(255,255,255,0.45)">Black</div>
+  <div class="cs-swatch" style="background:#F4F0E8;color:#202925;border:1px solid #e0dbd3">Off-white</div>
   <div class="cs-swatch" style="background:#C2CBCB;color:#202925">Healing Blue</div>
   <div class="cs-swatch" style="background:#97A675;color:#202925">Pale Green</div>
   <div class="cs-swatch" style="background:#D9B692;color:#202925">Sand</div>
 </div>
-
 <div class="cs-swatches">
   <div class="cs-swatch" style="background:#00FFFF;color:#202925">Cyan</div>
   <div class="cs-swatch" style="background:#00FF9B;color:#202925">Mint</div>
@@ -181,59 +203,111 @@
 </div>
 
 <div class="cs-grid">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Colour-Soft-1024x683.jpg" alt="Umane soft colour palette" loading="lazy">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Colour-Vivid-1024x683.jpg" alt="Umane vivid colour accents" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_color_palette.jpg" alt="Umane colour palette" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_color_gradients.jpg" alt="Umane gradient system" loading="lazy">
 </div>
 
-<!-- Section 04: Gradients -->
+<!-- Section 05: Gradients & Texture -->
 <div class="cs-strategy">
-  <span class="cs-section-label">04 — Gradients & Texture</span>
+  <span class="cs-section-label">05 — Gradients & Texture</span>
   <div class="cs-strategy-intro">
     <h2>Soft circles that breathe and flow.</h2>
-    <p>Three named gradients — Clarity, Balance, Focus — echo the circular forms of the logo. Fluid transitions reflect the rhythm of the human body in motion: stretching, shifting, flowing with purpose. Layered over them, a dotted texture pattern introduces tactile depth and dynamic movement, referencing the logo grid at scale. The system is modular: it moves, breathes, and organises.</p>
+    <p>Three named gradients — Clarity, Balance, Focus — echo the circular forms of the logo. Fluid transitions reflect the rhythm of the human body in motion. Layered over them, a dotted texture introduces tactile depth and dynamic movement, referencing the logo grid at scale. It adds depth and dimension, creating a sense of almost 3D movement.</p>
   </div>
 </div>
 
 <div class="cs-media-full">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Gradients-1024x576.jpg" alt="Umane gradient system" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_texture.jpg" alt="Umane texture and gradient combined" loading="lazy">
 </div>
 
-<div class="cs-grid">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Texture-Pattern-1024x683.jpg" alt="Umane texture pattern" loading="lazy">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Gradient-Texture-1024x683.jpg" alt="Umane gradient and texture combined" loading="lazy">
-</div>
-
-<!-- Section 05: Design System / Applications -->
+<!-- Section 06: Design System -->
 <div class="cs-strategy">
-  <span class="cs-section-label">05 — Design System</span>
+  <span class="cs-section-label">06 — Design System</span>
   <div class="cs-strategy-intro">
-    <h2>Every element modular and intentional.</h2>
-    <p>The design system combines logo grid, marker shapes, gradient language, and dot texture into a single cohesive toolkit. Applied across web, app, social, and print: precise brand visuals generated from a simple system. Designed not to impress, but to resonate. The result is a visual identity that feels intelligent, grounded, and quietly aspirational — a direct reflection of the brand's promise: capability, calibrated.</p>
+    <h2>The circle organises in three key ways.</h2>
+    <p>Logo grid, marker shapes, gradient language, dot texture — one unified toolkit. Applied across web, app, social, and print. The system is modular: it moves, breathes, and organises. Designed not to impress, but to resonate. Every element intentional, every application systematic.</p>
   </div>
 </div>
 
 <div class="cs-media-full">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Brand-System-1024x576.jpg" alt="Umane brand system overview" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_design_system.jpg" alt="Umane design system" loading="lazy">
 </div>
 
 <div class="cs-grid">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Web-App-1024x683.jpg" alt="Umane web application" loading="lazy">
-  <img src="https://www.moresleep.net/wp-content/uploads/2024/09/Umane_Social-Motion-1024x683.jpg" alt="Umane social and motion" loading="lazy">
+  <img src="/frede-studio/assets/umane/p1_brand_in_use_photo.jpg" alt="Umane brand in use" loading="lazy">
+  <img src="/frede-studio/assets/umane/p2_markers_photo.jpg" alt="Umane markers system" loading="lazy">
+</div>
+
+<!-- Section 07: Art Direction -->
+<div class="cs-strategy">
+  <span class="cs-section-label">07 — Art Direction</span>
+  <div class="cs-strategy-intro">
+    <h2>The poetry of physical intelligence.</h2>
+    <p>Umane's visual language captures how the body interacts with gravity, light, and space. Every frame embodies presence, precision, and natural rhythm, revealing the quiet power of human movement. The focus is on authentic motion, not performance — on how movement feels, not just how it looks. Matte textures, monochrome, natural fibers. Studios with character. The body as landscape.</p>
+  </div>
+</div>
+
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p2_art_direction_photo.jpg" alt="Umane art direction" loading="lazy">
+</div>
+
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p2_ai_photo_prompts.jpg" alt="Umane AI photo prompt system" loading="lazy">
+</div>
+
+<!-- Section 08: Mockups & Applications -->
+<div class="cs-strategy">
+  <span class="cs-section-label">08 — Applications</span>
+  <div class="cs-strategy-intro">
+    <h2>A brand that lives on every surface.</h2>
+    <p>From supplement tins and sachets to washi tape and tote bags, social content to digital UI — the identity system scales across every touchpoint without losing its logic. Each application demonstrates the same modular thinking: the circle, the wordmark, the gradient, the dot. Different surface, same brand.</p>
+  </div>
+</div>
+
+<div class="cs-grid">
+  <img src="/frede-studio/assets/umane/p2_merch_supplement.jpg" alt="Umane supplement packaging" loading="lazy">
+  <img src="/frede-studio/assets/umane/p2_merch_tape_bag.jpg" alt="Umane tape and bag mockups" loading="lazy">
+</div>
+
+<!-- Logo animation video -->
+<div class="cs-media-full">
+  <video autoplay muted loop playsinline>
+    <source src="/frede-studio/logo_anim_umane.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- Final brand board -->
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p2_final_brand_board.jpg" alt="Umane final brand board" loading="lazy">
 </div>
 
 <div class="cs-pullquote">
   <blockquote>Capability, calibrated.</blockquote>
 </div>
 
+<!-- Closing slide -->
+<div class="cs-media-full">
+  <img src="/frede-studio/assets/umane/p2_closing_slide.jpg" alt="umane.com" loading="lazy">
+</div>
+
+<!-- AI / Process note -->
+<div class="cs-ai-note">
+  <strong>A note on process.</strong> This project was developed from start to finish together with Claude — from initial brand strategy and naming rationale through to identity design, design system, art direction guidelines, and motion principles. Strategy and brand narrative were iterated in conversation; design decisions were pressure-tested against the brand logic in real time. The result is both a human deliverable (this case study) and the foundation of a structured brand system built to work with the tools teams actually use today.
+</div>
+
 <div class="cs-bottom">
   <div class="cs-description">
-    <p>Umane is a holistic wellness club in Berlin. A modern performance system built for ambition, driven by purpose. MoreSleep led the full brand design from identity concept through to complete design system: naming rationale, logo, typography (Milling Duplex + Tiempos), colour palette, gradients, texture language, motion, and digital application.</p>
-    <p>The visual language is built on balance: clarity and character, structure and softness. Every element modular and intentional, designed not to impress but to resonate.</p>
+    <p>Umane is a holistic wellness club in Berlin. MoreSleep led the full project from strategy through design system: brand positioning, naming rationale, six strategic pillars, tone of voice, visual identity (logo, lock-up system), typography (Milling Duplex + Tiempos), colour palette, gradient system, texture language, art direction, motion principles, and applications across digital, social, and print.</p>
+    <p>The visual language is built on balance: clarity and character, structure and softness. Every element modular and intentional, the result a visual identity that feels intelligent, grounded, and quietly aspirational — a direct reflection of the brand's promise: capability, calibrated.</p>
   </div>
   <dl class="cs-credits-cols">
     <div class="cs-credit-group">
+      <dt>Collaborators</dt>
+      <dd>Emely Wensky<br>Sveta Koliada<br>Claude (Anthropic)</dd>
+    </div>
+    <div class="cs-credit-group">
       <dt>Year</dt>
-      <dd>2024</dd>
+      <dd>2024 · 2025</dd>
     </div>
   </dl>
 </div>
