@@ -444,6 +444,21 @@
       100% { opacity: 1;   transform: translate(0,0) skewX(0deg); filter: none; }
     }
 
+
+    /* ── Ritz-Carlton logo card ── */
+    img.rc-logo {
+      width: 42% !important;
+      filter: brightness(0) invert(1);
+      animation: rc-shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes rc-shimmer {
+      0%   { filter: brightness(0) invert(1) sepia(0) saturate(1); opacity: 0.9; }
+      40%  { filter: brightness(0) invert(1) sepia(0.6) saturate(2) hue-rotate(5deg); opacity: 1; }
+      60%  { filter: brightness(0) invert(1) sepia(0.8) saturate(3) hue-rotate(10deg); opacity: 1; }
+      100% { filter: brightness(0) invert(1) sepia(0) saturate(1); opacity: 0.9; }
+    }
+
 </style>
 </head>
 <body>
@@ -538,7 +553,7 @@
         link:"/frede-studio/umane-brand-identity.html",
         year:"2024", collab:"—" },
       { b:"Ritz-Carlton",       link:"/frede-studio/ritz-carlton-berlin-brand-event.html", tag:"Hospitality & Brand", desc:"Rebranding five interior spaces at the Ritz-Carlton Berlin.",
-        type:"img", src:"https://cache.marriott.com/is/image/marriotts7prod/50588305-rc_berlin_153854:Wide-Hor?wid=1600&fit=constrain",
+        type:"placeholder-logo", src:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/The-Ritz-Carlton-Berlin-Logo.svg/618px-The-Ritz-Carlton-Berlin-Logo.svg.png", bg:"#1a1a2e", logoClass:"rc-logo",
         ratio:"ratio-land",
         year:"2019", live:"ritzcarlton.com", liveHref:"https://www.ritzcarlton.com", collab:"—" },
       { b:"MINI",               tag:"Brand & Platform", desc:"Creative direction, brand strategy, and platform for a multi-city conference exploring the future of urban living — with MINI Germany.",
