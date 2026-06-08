@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concierge Coffee — Brand & Web · Frederik Frede</title>
+<meta name="description" content="Brand strategy, identity direction, and headless e-commerce for Concierge Coffee — a material-driven coffee space in the LA Arts District, rooted between Berlin and Los Angeles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-header{padding:80px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cs-title{font-size:clamp(56px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-0.035em;color:var(--grey-dark);margin:0}
+.cs-meta{display:flex;flex-direction:column;gap:20px;padding-bottom:4px}
+.cs-tags{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light)}
+.cs-tagline{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:var(--grey-dark);line-height:1.1;letter-spacing:-0.02em}
+.cs-desc{font-size:15px;color:var(--grey-mid);line-height:1.65;max-width:420px}
+.cs-intro{padding:0 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.cs-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0}
+.cs-media-full{padding:0 48px;margin-bottom:24px}
+.cs-media-full img,.cs-media-full video{width:100%;display:block}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-grid img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+.cs-grid.portrait img{aspect-ratio:2/3}
+.cs-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;padding:0 48px}
+.cs-grid-3 img{width:100%;display:block;object-fit:cover;aspect-ratio:2/3}
+.cs-pullquote{padding:80px 48px}
+.cs-pullquote blockquote{font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.0;color:var(--grey-dark);margin:0;max-width:900px}
+.cs-strategy{padding:80px 48px}
+.cs-section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-light);margin-bottom:48px;display:block}
+.cs-strategy-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px;align-items:start}
+.cs-strategy-intro h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--grey-dark);margin:0}
+.cs-strategy-intro p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0;padding-top:6px}
+.cs-wip{padding:48px;margin:0 48px 80px;border:1px solid var(--border)}
+.cs-wip-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-light);margin-bottom:16px;display:block}
+.cs-wip p{font-size:15px;color:var(--grey-mid);line-height:1.7;margin:0}
+.cs-bottom{padding:80px 48px 100px;position:relative;border-top:1px solid var(--border);margin-top:80px}
+.cs-description{max-width:50%}
+.cs-description p{font-size:15px;font-weight:700;color:var(--grey-dark);line-height:1.6;margin-bottom:20px}
+.cs-description p:last-child{margin-bottom:0}
+.cs-credits-cols{position:absolute;right:48px;top:80px;text-align:right}
+.cs-credit-group{margin-bottom:28px}
+.cs-credit-group dt{font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--grey-light);margin-bottom:4px}
+.cs-credit-group dd{font-size:14px;font-weight:700;color:var(--grey-dark);margin:0;line-height:1.5}
+.cs-credit-group dd a{color:var(--grey-dark);text-decoration:none}
+.cs-credit-group dd a:hover{opacity:0.6}
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:80px}
+.cs-nav-item{display:flex;flex-direction:column;padding:40px 48px;text-decoration:none;color:inherit;transition:opacity 0.2s;gap:16px}
+.cs-nav-item:hover{opacity:0.5}
+.cs-nav-dir{font-size:clamp(18px,2vw,28px);font-weight:700;letter-spacing:-0.02em;color:var(--grey-light)}
+.cs-nav-name{font-size:clamp(28px,4vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:0.95;color:var(--grey-dark)}
+.cs-nav-item.next{text-align:right}
+@media(max-width:640px){
+  .cs-header{padding:80px 20px 36px;grid-template-columns:1fr;gap:24px}
+  .cs-title{font-size:clamp(36px,10vw,56px)}
+  .cs-intro{padding:0 20px 48px;grid-template-columns:1fr;gap:24px}
+  .cs-strategy{padding:48px 20px}
+  .cs-strategy-intro{grid-template-columns:1fr;gap:24px}
+  .cs-pullquote{padding:48px 20px}
+  .cs-pullquote blockquote{font-size:clamp(24px,7vw,40px)}
+  .cs-media-full{padding:0 20px}
+  .cs-grid{grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
+  .cs-grid-3{grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
+  .cs-wip{margin:0 20px 48px;padding:28px 20px}
+  .cs-bottom{padding:40px 20px 64px}
+  .cs-description{max-width:100%}
+  .cs-credits-cols{position:static;text-align:left;margin-top:40px}
+  .cs-nav{grid-template-columns:1fr}
+  .cs-nav-item{padding:28px 20px}
+  .cs-nav-item.next{text-align:left;border-top:1px solid var(--border)}
+  .cs-nav-name{font-size:clamp(24px,8vw,40px)}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="/frede-studio/">Frederik</a>
+    <a class="nav-studio" href="/frede-studio/">&nbsp;Frede</a>
+  </div>
+  <div class="nav-center">
+    <div class="swatches">
+      <div class="swatch" style="background:#fff" onclick="setTheme('white',this)"></div>
+      <div class="swatch active" style="background:#111" onclick="setTheme('black',this)"></div>
+      <div class="swatch" style="background:#e63222" onclick="setTheme('signal',this)"></div>
+    </div>
+  </div>
+  <div class="nav-right" id="navLinks">
+    <ul>
+      <button class="nav-close" aria-label="Close menu" onclick="document.getElementById('navLinks').classList.remove('open')">×</button>
+      <li><a href="/frede-studio/">Home</a></li>
+      <li><a href="/frede-studio/work.html">Work</a></li>
+      <li><a href="/frede-studio/about.html">Information</a></li>
+      <li><a href="/frede-studio/about.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span></button>
+</nav>
+
+<header class="cs-header">
+  <h1 class="cs-title">Concierge<br>Coffee</h1>
+  <div class="cs-meta">
+    <span class="cs-tags">Brand Strategy · Identity Direction · Web · E-Commerce</span>
+    <p class="cs-tagline">"Coffee as a cultural vehicle, not the hero."</p>
+    <p class="cs-desc">A material-driven coffee space in the LA Arts District, rooted between Berlin and Los Angeles. Brand strategy, identity direction, and a headless Shopify site — built for the crowd that already knows good things when they see them.</p>
+  </div>
+</header>
+
+<!-- Hero: space photography -->
+<div class="cs-media-full">
+  <img src="https://framerusercontent.com/images/Uyy6CTfOxsVUReHs4bTJZzWV7AI.jpeg?width=2400" alt="Concierge Coffee space, LA Arts District" loading="lazy">
+</div>
+
+<div class="cs-intro">
+  <p>Concierge Coffee sits at 821 Traction Avenue in LA's Arts District — sharing an entrance with Departamento, neighboured by the city's most culturally literate crowd. Founded by Benjamin and Namy, the space is an extension of the Klein Agency aesthetic: raw, material, unhurried. The interior is their canvas. The coffee is the constant.</p>
+  <p>Working as independent creative consultant alongside the founders, the brief covers brand strategy and positioning, identity direction, and a full e-commerce website — headless Shopify with editorial frontend, built for both the LA and Berlin markets simultaneously.</p>
+</div>
+
+<!-- Section 01: Brand Strategy -->
+<div class="cs-strategy">
+  <span class="cs-section-label">01 — Brand Strategy</span>
+  <div class="cs-strategy-intro">
+    <h2>Berlin raw. LA creative. Neither trying too hard.</h2>
+    <p>The brand lives at the intersection of two cities with different registers of cool. Berlin brings cultural credibility, underground roots, neighbourhood anchor energy. LA brings lifestyle-forward, collab-driven, adventure. Concierge is the bridge — a brand for people who move between both worlds without needing to explain themselves. Coffee as cultural vehicle, not product hero.</p>
+  </div>
+  <div class="cs-strategy-intro">
+    <h2>Never artisanal. Never third wave.</h2>
+    <p>Tone: warm, confident, lightly playful. No coffee snobbery. The visual language is minimal and classic — Magda Wosinska-style photography, grainy but professionally executed. Mood over product shots. Hands, textures, objects, ambiance. Packaging direction: Bauhaus-inspired colorways (muted blues/greens, brick tones), tactile elements, two colorways to distinguish espresso from filter — think Aesop palette.</p>
+  </div>
+</div>
+
+<div class="cs-grid portrait">
+  <img src="https://framerusercontent.com/images/yaR0OiePMk0SGlJWd8nwFizr9OQ.jpeg?width=1200" alt="Concierge Coffee interior" loading="lazy">
+  <img src="https://framerusercontent.com/images/ijheHusZVJ3Qxzo5aV8RwPmdIs.jpeg?width=1200" alt="Concierge Coffee interior" loading="lazy">
+</div>
+
+<div class="cs-pullquote">
+  <blockquote>A material-driven space to slow down.</blockquote>
+</div>
+
+<!-- Section 02: Space -->
+<div class="cs-strategy">
+  <span class="cs-section-label">02 — The Space</span>
+  <div class="cs-strategy-intro">
+    <h2>Designed by Klein Agency. 821 Traction Ave.</h2>
+    <p>The physical space is the brand's first and strongest statement. Klein Agency — the husband-and-wife studio of Maša and Jon Kleinhample, based in Downtown LA — designed and fabricated the interior. Warm concrete, tactile surfaces, bespoke furniture. The kind of space that makes people slow down without being told to.</p>
+  </div>
+</div>
+
+<div class="cs-grid-3">
+  <img src="https://framerusercontent.com/images/eDOD75mU6aJ3Pj5C1V1HgecDs.jpeg?width=900" alt="Concierge Coffee" loading="lazy">
+  <img src="https://framerusercontent.com/images/79502LO2JriPOUMdHpKj1PaA34.jpeg?width=900" alt="Concierge Coffee" loading="lazy">
+  <img src="https://framerusercontent.com/images/xIblc0x2gusTCI8TiIRobgvsJRY.jpeg?width=900" alt="Concierge Coffee" loading="lazy">
+</div>
+
+<div class="cs-grid portrait">
+  <img src="https://framerusercontent.com/images/HFFSXJqyHB2jl9dRP7PFIeC9w.jpeg?width=1200" alt="Concierge Coffee" loading="lazy">
+  <img src="https://framerusercontent.com/images/uAmYKdgFwe0Jqf0ES3Lc7hL9bI.jpeg?width=1200" alt="Concierge Coffee" loading="lazy">
+</div>
+
+<div class="cs-grid portrait">
+  <img src="https://framerusercontent.com/images/JZyqpVI0XkdqEgEFphMufmZF3k.jpeg?width=1200" alt="Concierge Coffee" loading="lazy">
+  <img src="https://framerusercontent.com/images/JndbxQ0fFLuBP1M3MdVnhuCFEQ.jpeg?width=1200" alt="Concierge Coffee" loading="lazy">
+</div>
+
+<!-- Section 03: Two Markets -->
+<div class="cs-strategy">
+  <span class="cs-section-label">03 — Two Markets</span>
+  <div class="cs-strategy-intro">
+    <h2>Los Angeles: lifestyle-first, collab-driven.</h2>
+    <p>Cultural anchors: Departamento next door, District Vision, Good Fight, Porsche crowd. The LA market leads on e-commerce and collab programming — capsule releases, limited roast packaging, events that prove cultural pull before any wholesale pitch is made.</p>
+  </div>
+  <div class="cs-strategy-intro">
+    <h2>Berlin: underground roots, neighbourhood anchor.</h2>
+    <p>Cultural anchors: galleries, Berghain-adjacent labels, boutique fashion. The Berlin market builds through wholesale first — wholesale growth as the foundation, credibility established through the right partners before volume. Both markets share the same brand, the same aesthetic logic, different activation strategies.</p>
+  </div>
+</div>
+
+<!-- Section 04: Web -->
+<div class="cs-strategy">
+  <span class="cs-section-label">04 — Website</span>
+  <div class="cs-strategy-intro">
+    <h2>Headless Shopify. Full creative control.</h2>
+    <p>The site is built headless — editorial HTML/CSS/JS frontend with Shopify Storefront API handling products, cart, and checkout invisibly in the background. Same workflow as the portfolio and Samsation. Shopify does the commerce; the frontend does the brand. Full bleed photography, minimal nav, sparse copy. The aesthetic of the physical space, translated to screen.</p>
+  </div>
+</div>
+
+<!-- WIP note -->
+<div class="cs-wip">
+  <span class="cs-wip-label">In progress</span>
+  <p>Website build and identity system currently in development. This case study will be updated as the project progresses through launch. Process documentation, brand assets, and final site coming as the project develops.</p>
+</div>
+
+<div class="cs-bottom">
+  <div class="cs-description">
+    <p>Concierge Coffee is a specialty coffee roaster and space founded in Los Angeles and Berlin by Benjamin and Namy. Working as independent creative consultant: brand strategy and positioning, identity direction, and a headless Shopify e-commerce site. The brief: lean, simple but modern. LA fashion/coffee vibe. Editorial aesthetic matching the physical space — material-driven, unhurried, confident.</p>
+    <p>Space design by Klein Agency. Project ongoing.</p>
+  </div>
+  <dl class="cs-credits-cols">
+    <div class="cs-credit-group">
+      <dt>Live site</dt>
+      <dd><a href="https://conciergecoffee.com" target="_blank" rel="noopener">conciergecoffee.com ↗</a></dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Collaborators</dt>
+      <dd>Klein Agency<br>(space design)</dd>
+    </div>
+    <div class="cs-credit-group">
+      <dt>Year</dt>
+      <dd>2025 · ongoing</dd>
+    </div>
+  </dl>
+</div>
+
+<nav class="cs-nav">
+  <a class="cs-nav-item prev" href="/frede-studio/umane-brand-identity.html">
+    <span class="cs-nav-dir">← Previous</span>
+    <span class="cs-nav-name">Umane</span>
+  </a>
+  <a class="cs-nav-item next" href="/frede-studio/signal-la-brand-identity.html">
+    <span class="cs-nav-dir">Next →</span>
+    <span class="cs-nav-name">Signal LA</span>
+  </a>
+</nav>
+
+<footer>
+  <div id="footer-mount"></div>
+</footer>
+<script src="/frede-studio/footer.js"></script>
+<script>
+  const themes={white:{bg:'#fff',card:'#f5f3f1',fg:'#4a4540',mid:'#7a7470',light:'#a8a39f',border:'#c8c3be'},black:{bg:'#111',card:'#1a1a1a',fg:'#fff',mid:'rgba(255,255,255,0.55)',light:'rgba(255,255,255,0.30)',border:'rgba(255,255,255,0.12)'},signal:{bg:'#e63222',card:'#cc2b1d',fg:'#000',mid:'rgba(0,0,0,0.55)',light:'rgba(0,0,0,0.35)',border:'transparent'}};
+  function setTheme(n,el){const t=themes[n],r=document.documentElement.style;r.setProperty('--bg',t.bg);r.setProperty('--bg-card',t.card);r.setProperty('--fg',t.fg);r.setProperty('--fg-mid',t.mid);r.setProperty('--fg-light',t.light);r.setProperty('--border',t.border);r.setProperty('--grey-dark',t.fg);r.setProperty('--grey-mid',t.mid);r.setProperty('--grey-light',t.light);document.documentElement.setAttribute('data-theme',n);document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));if(el)el.classList.add('active');}
+  setTheme('black',document.querySelector('.swatch[onclick*="black"]'));
+</script>
+</body>
+</html>
