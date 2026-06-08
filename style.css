@@ -14,7 +14,7 @@
   --t-hero:    clamp(48px, 8vw, 100px);
   --t-large:   clamp(22px, 2.8vw, 36px);
   --t-ui:      15px;
-  --t-label:   12px;
+  --t-label:   11px;
 
   /* Weights */
   --bold:      700;
@@ -121,6 +121,29 @@ body {
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--grey-dark); }
 
+/* Close button inside mobile nav overlay — hidden by default, shown only when overlay is open */
+.nav-close {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--grey-dark);
+  z-index: 101;
+  padding: 4px 8px;
+  font-family: inherit;
+}
+
+/* Only show on mobile, only when overlay is open */
+@media (max-width: 640px) {
+  .nav-links.open .nav-close,
+  .nav-right.open .nav-close { display: block; }
+}
+
 /* ─── FOOTER ──────────────────────────────────────────────── */
 
 .footer-bar {
@@ -132,30 +155,38 @@ body {
 
 .footer-left {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.footer-logo-row {
-  display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
+  gap: 24px;
+}
+
+.footer-left-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 4px;
 }
 
 .footer-marker {
   display: block;
-  width: 160px;
+  width: 180px;
   overflow: visible;
   pointer-events: none;
-  padding-top: 4px;
+}
+
+.footer-copy {
+  font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--grey-light);
 }
 
 .footer-logo {
-  height: 48px;
+  height: 80px;
   width: auto;
   display: block;
+  margin-bottom: 10px;
 }
 
 [data-theme="black"] .footer-logo {
@@ -166,6 +197,8 @@ body {
 
 .footer-links a {
   font-size: var(--t-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
   color: var(--grey-light);
   text-decoration: none;
   transition: color 0.2s;
@@ -173,19 +206,9 @@ body {
 
 .footer-links a:hover { color: var(--grey-dark); }
 
-.footer-copy {
-  font-size: var(--t-label);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  color: var(--grey-light);
-}
-
 .footer-copy-link {
   color: var(--grey-light);
   text-decoration: none;
-  text-transform: none;
-  letter-spacing: normal;
-  font-size: inherit;
 }
 .footer-copy-link:hover { color: var(--grey-dark); }
 
@@ -252,7 +275,7 @@ body {
 /* ─── MOBILE ──────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
-  .nav { padding: 0 24px; }
+  .nav { padding: 0 20px; }
   .hamburger { display: flex; }
 
   /* index.html mobile nav */
@@ -280,7 +303,21 @@ body {
   .nav-right.open ul li::after { display: none; }
   .nav-right.open ul a { font-size: 24px; }
 
-  .footer-bar { padding: 16px 24px; }
+  /* Footer — stack on mobile */
+  .footer-bar {
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .footer-left { flex-direction: column; gap: 12px; }
+  .footer-logo { height: 56px; }
+  .footer-marker { display: none; }
+  .footer-links { gap: 16px; }
+  .footer-subscribe { flex-wrap: wrap; }
+
+  /* Hide colour swatches on mobile — nav too narrow */
+  .nav-center { display: none; }
 }
 
   .footer-subscribe {
@@ -305,6 +342,8 @@ body {
   .subscribe-btn {
     font-family: var(--font);
     font-size: var(--t-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
     color: var(--grey-light);
     background: none;
     border: none;
