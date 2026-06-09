@@ -19,7 +19,6 @@
 
   a { color: inherit; text-decoration: none; }
 
-  /* sketch labels */
   .lbl {
     padding: 80px 32px 0;
     font-size: 9px;
@@ -42,9 +41,32 @@
   }
 
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-mark svg {
+    width: 10px;
+    height: 10px;
+    fill: #fff;
+  }
+
+  .logo-text {
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
@@ -55,33 +77,35 @@
     color: #111;
   }
 
+  .nav-r a { transition: color 0.15s; }
   .nav-r a:hover { color: #999; }
 
   /* ── HERO ── */
   .hero {
-    padding: 0 32px 80px;
-    margin-top: 24px;
+    padding: 24px 32px 80px;
   }
 
   .hero-img {
     width: 100%;
     aspect-ratio: 16/7;
     background: #f2f2f2;
-    display: flex;
-    align-items: flex-end;
-    padding: 14px 16px;
+    overflow: hidden;
     margin-bottom: 16px;
+    position: relative;
   }
 
-  .hero-img span {
-    font-size: 9px;
-    color: #ccc;
+  .hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .hero-meta {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
   }
 
   .hero-title {
@@ -96,6 +120,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    padding-bottom: 4px;
   }
 
   .hero-sub span {
@@ -134,7 +159,7 @@
     color: #bbb;
   }
 
-  .filters span { cursor: pointer; }
+  .filters span { cursor: pointer; transition: color 0.15s; }
   .filters span.on { color: #111; }
   .filters span:hover { color: #111; }
 
@@ -149,19 +174,20 @@
   .card-img {
     width: 100%;
     aspect-ratio: 3/4;
-    background: #f5f5f5;
+    background: #f7f7f7;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .card-img span {
-    font-size: 9px;
-    color: #ddd;
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
   }
 
-  .card:hover .card-img { background: #eee; }
+  .card:hover .card-img img { transform: scale(1.04); }
 
   .card-info {
     padding: 10px 0 20px;
@@ -170,10 +196,7 @@
     align-items: baseline;
   }
 
-  .card-name {
-    font-size: 11px;
-    font-weight: 400;
-  }
+  .card-name { font-size: 11px; font-weight: 400; }
 
   .card-origin {
     font-size: 10px;
@@ -181,10 +204,7 @@
     margin-top: 3px;
   }
 
-  .card-price {
-    font-size: 11px;
-    color: #111;
-  }
+  .card-price { font-size: 11px; color: #111; }
 
   /* ── PDP ── */
   .pdp {
@@ -204,12 +224,29 @@
   .pdp-main {
     grid-column: 1 / -1;
     aspect-ratio: 4/3;
-    background: #f5f5f5;
+    background: #f7f7f7;
+    overflow: hidden;
+  }
+
+  .pdp-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .pdp-sm {
     aspect-ratio: 1;
     background: #f2f2f2;
+    overflow: hidden;
+  }
+
+  .pdp-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   .pdp-r {
@@ -339,6 +376,14 @@
   .ci-img {
     aspect-ratio: 1;
     background: #f2f2f2;
+    overflow: hidden;
+  }
+
+  .ci-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .ci-name { font-size: 11px; }
@@ -368,7 +413,7 @@
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 16px;
   }
 
@@ -411,7 +456,14 @@
 
 <!-- NAV -->
 <nav>
-  <span class="logo">Concierge Coffee</span>
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="5" cy="5" r="2.5"/>
+      </svg>
+    </div>
+    <span class="logo-text">Concierge Coffee</span>
+  </div>
   <div class="nav-r">
     <a href="#">Shop</a>
     <a href="#">Visit</a>
@@ -422,7 +474,9 @@
 <!-- 01 HERO -->
 <div class="lbl">01 — Hero</div>
 <section class="hero">
-  <div class="hero-img"><span>Photography</span></div>
+  <div class="hero-img">
+    <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Concierge Coffee" />
+  </div>
   <div class="hero-meta">
     <div class="hero-title">Single<br>origin.</div>
     <div class="hero-sub">
@@ -447,31 +501,39 @@
   </div>
   <div class="grid">
     <div class="card">
-      <div class="card-img"><span>Product image</span></div>
+      <div class="card-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Espresso" />
+      </div>
       <div class="card-info">
-        <div><div class="card-name">El Paraíso</div><div class="card-origin">Colombia · Washed</div></div>
+        <div><div class="card-name">Espresso</div><div class="card-origin">300g · Signature Blend</div></div>
+        <div class="card-price">$18</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Ethiopia" />
+      </div>
+      <div class="card-info">
+        <div><div class="card-name">Ethiopia</div><div class="card-origin">300g · Filter</div></div>
         <div class="card-price">$22</div>
       </div>
     </div>
     <div class="card">
-      <div class="card-img"><span>Product image</span></div>
+      <div class="card-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Nicaragua" />
+      </div>
       <div class="card-info">
-        <div><div class="card-name">Yirgacheffe</div><div class="card-origin">Ethiopia · Natural</div></div>
-        <div class="card-price">$24</div>
+        <div><div class="card-name">Nicaragua</div><div class="card-origin">300g · Filter</div></div>
+        <div class="card-price">$21</div>
       </div>
     </div>
     <div class="card">
-      <div class="card-img"><span>Product image</span></div>
-      <div class="card-info">
-        <div><div class="card-name">Huila</div><div class="card-origin">Colombia · Honey</div></div>
-        <div class="card-price">$22</div>
+      <div class="card-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Decaf Mexico" />
       </div>
-    </div>
-    <div class="card">
-      <div class="card-img"><span>Product image</span></div>
       <div class="card-info">
-        <div><div class="card-name">House</div><div class="card-origin">Seasonal · Espresso</div></div>
-        <div class="card-price">$20</div>
+        <div><div class="card-name">Decaf Mexico</div><div class="card-origin">300g · Filter</div></div>
+        <div class="card-price">$18.75</div>
       </div>
     </div>
   </div>
@@ -481,20 +543,33 @@
 <div class="lbl">03 — Product</div>
 <section class="pdp">
   <div class="pdp-imgs">
-    <div class="pdp-main"></div>
-    <div class="pdp-sm"></div>
-    <div class="pdp-sm"></div>
+    <div class="pdp-main">
+      <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="Ethiopia" />
+    </div>
+    <div class="pdp-sm">
+      <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="" />
+    </div>
+    <div class="pdp-sm">
+      <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="" />
+    </div>
   </div>
   <div class="pdp-r">
-    <div class="pdp-origin">Colombia · Washed · 1800m</div>
-    <div class="pdp-name">El Paraíso Reserve</div>
-    <div class="pdp-price">$22.00 · 250g</div>
+    <div class="pdp-origin">Ethiopia · Filter · 300g</div>
+    <div class="pdp-name">Ethiopia</div>
+    <div class="pdp-price">$22.00</div>
     <div class="pdp-notes">
-      <span class="pdp-note">Caramel</span>
+      <span class="pdp-note">Floral</span>
       <span class="pdp-note">Citrus</span>
-      <span class="pdp-note">Dark Fruit</span>
+      <span class="pdp-note">Stone Fruit</span>
     </div>
-    <div class="pdp-desc">Grown at altitude in Huila. Washed, dried on raised beds. Works for filter or espresso.</div>
+    <div class="pdp-desc">Single origin Ethiopian filter coffee. Clean, bright, and complex — best enjoyed as pour-over or batch brew.</div>
+    <div>
+      <div class="grind-lbl">Size</div>
+      <div class="grind-opts">
+        <button class="gb on">300g</button>
+        <button class="gb">1kg</button>
+      </div>
+    </div>
     <div>
       <div class="grind-lbl">Grind</div>
       <div class="grind-opts">
@@ -517,18 +592,22 @@
       <span class="cart-count">2</span>
     </div>
     <div class="ci">
-      <div class="ci-img"></div>
-      <div><div class="ci-name">El Paraíso</div><div class="ci-sub">Whole Bean · 250g</div></div>
+      <div class="ci-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="" />
+      </div>
+      <div><div class="ci-name">Ethiopia</div><div class="ci-sub">300g · Whole Bean</div></div>
       <div class="ci-price">$22</div>
     </div>
     <div class="ci">
-      <div class="ci-img"></div>
-      <div><div class="ci-name">Yirgacheffe</div><div class="ci-sub">Filter · 250g</div></div>
-      <div class="ci-price">$24</div>
+      <div class="ci-img">
+        <img src="https://pub-ba1a74be17d7442a9f2541946eb9510e.r2.dev/shops/2d0ab5bf-08e1-4119-9a76-a5d98c20acd4/3.jpg" alt="" />
+      </div>
+      <div><div class="ci-name">Espresso</div><div class="ci-sub">300g · Whole Bean</div></div>
+      <div class="ci-price">$18</div>
     </div>
     <div class="cart-total">
       <span class="cart-total-lbl">Total</span>
-      <span>$46.00</span>
+      <span>$40.00</span>
     </div>
     <button class="atc">Checkout</button>
   </div>
@@ -548,10 +627,11 @@
   <div>
     <div class="ft-h">Shop</div>
     <ul class="ft-links">
-      <li><a href="#">All Coffee</a></li>
       <li><a href="#">Espresso</a></li>
-      <li><a href="#">Filter</a></li>
-      <li><a href="#">Decaf</a></li>
+      <li><a href="#">Ethiopia</a></li>
+      <li><a href="#">Nicaragua</a></li>
+      <li><a href="#">Sumatra</a></li>
+      <li><a href="#">Decaf Mexico</a></li>
     </ul>
   </div>
   <div>
@@ -569,10 +649,12 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.gb').forEach(b => {
-    b.addEventListener('click', () => {
-      document.querySelectorAll('.gb').forEach(x => x.classList.remove('on'));
-      b.classList.add('on');
+  document.querySelectorAll('.grind-opts').forEach(group => {
+    group.querySelectorAll('.gb').forEach(b => {
+      b.addEventListener('click', () => {
+        group.querySelectorAll('.gb').forEach(x => x.classList.remove('on'));
+        b.classList.add('on');
+      });
     });
   });
 </script>
