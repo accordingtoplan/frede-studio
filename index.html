@@ -426,7 +426,13 @@
 
 
     /* ── Concierge Coffee logo card ── */
-    img.cc-logo {
+    img.signal-logo {
+      width: 70% !important;
+      display: block;
+      margin: 0 auto;
+      filter: brightness(0) invert(1);
+    }
+    .cc-logo {
       width: 70% !important;
       display: block;
       margin: 0 auto;
@@ -449,14 +455,18 @@
 
     /* ── Ritz-Carlton logo card ── */
     img.rc-logo {
-      width: 90% !important;
+      width: 70% !important;
+      display: block;
+      margin: 0 auto;
       animation: rc-shimmer 3s ease-in-out infinite;
       position: relative;
       z-index: 1;
     }
 
     /* Brushed steel tile */
+    .rc-steel-tile .logo-tile,
     .rc-steel-tile {
+      padding: 10% !important;
       background: linear-gradient(
         105deg,
         #6b6b6b 0%,
