@@ -59,6 +59,57 @@ Started: 2026-06-11. Domain scope: `www.moresleep.net` only.
 - moresleep-wildling-mockup-phone-1024x636.jpg (51K)
 - moresleep-wildling-tool-bar-1024x683.jpg (25K)
 
+### index.html — 3/3 ✓ (all reused from other folders)
+### work.html — 2/2 ✓ (reused from rooms-hotels + friends-of-friends)
+### canyon-digital-experience-web-design.html — 3/3 ✓
+- mockup-2n-1024x513.jpg (22K)
+- mockup-4n-1024x513.jpg (19K)
+- f-utl-evo-el-148294-sitzknoten-3-1024x683.jpg (49K)
+
+### lala-berlin-brand-digital.html — 3/3 ✓
+- moresleep-lala-berlin-layout-1024x513.jpg (333K)
+- big2-lalaberlin-lookbook-iamtourist-summer18-2-5-1024x696.jpg (143K)
+- artboard-2-1024x513.jpg (31K)
+
+### mizzuni-ecommerce-brand.html — 3/3 ✓
+- mizzuni-header-case-study-1024x620.jpg (45K)
+- mizzuni-mobile-screens-1024x636.jpg (77K)
+- mizzuni-website-mockup-1024x683.jpg (201K)
+
+### ad-magazin-web-design-art-direction.html — 4/4 ✓
+- ms-ad-video-compressed.mp4 (1.8M)
+- moresleep-ad-magazine-1.gif (1.8M)
+- moresleep-ad-magazine-layouts-1024x514.jpg (271K)
+- norwegian-presence-dezeen-2364-col-1-683x1024.jpg (103K)
+
+### hotel-berlin-you-me-campaign.html — 5/5 ✓
+- artboard-1-1.jpg (63K)
+- freunde-von-freunden-ann-kathrin-carstensen-5146-1024x683.jpg (79K)
+- moresleep-hbb-interior-4451-1-1024x683.jpg (79K)
+- fhain-a4-03-l-preview-1024x683.jpg (201K)
+- moresleep-hbb-interior-4341-preview-684x1024.jpeg (81K)
+
+### hospitality-projects-brand-identity.html — 7/7 ✓ (1 in pernod-ricard/, 6 in hospitality-projects/)
+- header-image-hp-1024x565.jpg (168K) → assets/pernod-ricard/
+- 220208-hospitalityprojects-logo-animation.mp4 (11M)
+- frame-11-1024x512.png (33K)
+- hp-homepage-minimal-mockup-anim.mp4 (18M)
+- hp-desktop-2-screen-01.mp4 (15M)
+- businesscard-1024x683.jpg (138K)
+- hp-mobile-screens-animation.mp4 (17M)
+
+### art-tech-report-brand-digital.html — 1/1 ✓
+- atr-ms-website-bg-1024x575.jpg (16K)
+
+### bmw-brand-campaign-art-direction.html — 1/1 ✓
+- bmw-thumba-1024x683.jpg (19K)
+
+### bolon-web-design.html — 1/1 ✓
+- 9a0395d2ba15904c2ef04754d9b76811-e1566837231833-1024x990.jpg (287K)
+
+### meama-brand-identity.html — 1/1 ✓
+- 201207-meama-wall-mockup-1024x526.jpg (112K)
+
 ### wirtschaftsclub-dusseldorf-web-design.html — 5/5 ✓
 - moresleep-wcd-header-1024x575.jpg (69K)
 - moresleep-wcd-illustrations-1024x674.jpg (29K)
