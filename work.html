@@ -473,7 +473,7 @@ const projects = [
   { b:"wefox", link:"/wefox-web-design.html",               t:"Digital Design · 2019",            type:"img",
     src: MS+"2022/04/Wefox-Teaser-Portrait-819x1024.jpg" },
   { b:"LAS Art Foundation",  t:"Branding & Motion · 2023",        type:"video", link:"/las-art-foundation-brand-identity-motion.html",
-    src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4" },
+    src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4", poster:"/assets/las-poster.jpg" },
   { b:"Lewis Group",         t:"Brand & Digital · 2024",           type:"video", link:"/lewis-group-brand-identity-web-design.html",
     src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4" },
   { b:"AD Magazin", link:"/ad-magazin-web-design-art-direction.html",          t:"Editorial & Digital · 2018",       type:"img",
@@ -559,7 +559,7 @@ function buildGrid() {
     if (p.type === 'img') {
       inner = `<img src="${p.src}" alt="${p.b}" loading="lazy">`;
     } else if (p.type === 'video') {
-      inner = `<video autoplay muted loop playsinline><source src="${p.src}" type="video/mp4"></video>`;
+      inner = `<video autoplay muted loop playsinline${p.poster ? ` poster="${p.poster}"` : ''}><source src="${p.src}" type="video/mp4"></video>`;
     } else if (p.type === 'carousel') {
       const slides = VITRA.map(s => `<div class="carousel-slide"><img src="${s}" alt="Vitra" loading="lazy"></div>`).join('');
       inner = `<div class="carousel" id="c${i}">
